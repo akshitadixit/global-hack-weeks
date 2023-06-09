@@ -1,0 +1,46 @@
+Headers are like special messages that computers send to each other when they communicate over the internet.
+They contain important information about the data being sent or how it should be handled.
+ Think of headers as instructions that tell the computers how to behave when they exchange information.
+
+HTTP Strict Transport Security (HSTS):
+The Strict-Transport-Security header is set with a value of 'max-age=31536000; includeSubDomains; preload'.
+This header tells the browser to only access the website over HTTPS for a maximum age of 31,536,000 seconds (1 year).
+It also includes subdomains and indicates that the website should be included in the HSTS preload list maintained by browsers.
+
+magine you want to send a secret message to your friend, and you want to make sure nobody else can read it.
+HSTS is like a special seal that you put on your message to make sure it travels securely.
+It tells the browser that it should always use a secure connection (like HTTPS) when talking to a specific website.
+This makes it harder for bad people to intercept and read the messages.
+
+X-XSS-Protection:
+The X-XSS-Protection header is set with a value of '1; mode=block'.
+This header enables the browser's built-in XSS protection mechanism.
+The 1 value indicates that XSS protection should be enabled, and the mode=block directive instructs the browser to
+block the response if an XSS attack is detected.
+
+XSS stands for Cross-Site Scripting, which is a fancy term for when bad people try to put harmful things (like viruses)
+into websites that you visit. X-XSS-Protection is like a security shield that protects you from these harmful things.
+It tells the browser to be on guard and block any harmful code that it might find in the website you're visiting.
+
+X-Content-Type-Options:
+The X-Content-Type-Options header is set with a value of 'nosniff'.
+This header prevents the browser from MIME-sniffing the response content type.
+Setting it to 'nosniff' ensures that the browser follows the declared content type and doesn't try to infer it based on the content.
+
+Sometimes, bad people try to trick computers into thinking that a file is something different from what it actually is.
+It's like someone giving you a box of chocolates, but inside it, there's actually a scary spider!
+X-Content-Type-Options is like a magic spell that tells the browser to always trust the declared type of
+the file and not try to guess what it is. This helps prevent some sneaky attacks.
+
+X-Frame-Options:
+The X-Frame-Options header is set with a value of 'SAMEORIGIN'.
+This header prevents the page from being loaded in a frame or iframe from a different origin.
+By setting it to 'SAMEORIGIN', the page can only be framed by pages from the same origin.
+
+Have you ever seen a picture frame? It's a nice way to display a picture and keep it safe.
+X-Frame-Options is like a rule that tells the browser not to display a website inside a frame or an iframe
+from a different website. It's like saying, "Only show this website in its own frame,
+so nobody can trick you by showing it in a different frame." This helps protect you from some tricks that bad people might try to play.
+
+The set_security_headers() function is registered as an after_request handler, which means it will be
+executed after each request and modify the response headers accordingly.
