@@ -51,4 +51,4 @@ def backup_database():
     print("Database backup created:", destination_path)
 
 # Example usage
-backup_database()
+# backup_database()
